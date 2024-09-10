@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basta  dire solo "ciao"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar Section -->
+    <div class="navbar bg-base-100 fixed">
+        <div class="flex-1">
+            <a class="btn btn-ghost text-xl">Gocciola</a>
+        </div>
+        <div class="flex-none">
+            <div class="dropdown dropdown-end">
+                <div class="flex-none">
+                    <button class="btn btn-square btn-ghost">
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        class="inline-block h-5 w-5 stroke-current">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    <li><a href="https://discord.gg/7j3PjwaF3r">Server Discord</a></li>
+                    <li><a href="https://paypal.me/gocciolareal">PayPal</a></li>
+                    <li><a href="https://beacons.ai/gocciola">Altro...</a></li>
+                </ul>
+              </div>
+            </div>
+    </div>
+
+    <ul class="steps" style="padding-top: 5rem;">
+        <li class="step step-primary">Equazione</li>
+        <li class="step step">Trova il pulsante</li>
+        <li class="step step">Trova l'intruso</li>
+        <li class="step step">Fine</li>
+    </ul>
+
+    <!-- Main Content -->
+    <h1 style="padding-top: 1rem;">Equazione</h1>
+    <p>Osserva l'immagine qui sotto e risolvi questa semplicissima equazione matematica. <b>Equazione 1 di 3.</b></p>
+
+    <div class="mockup-window bg-base-300 border">
+        <div class="bg-base-200 flex justify-center px-4 py-6" style="font-family: 'Times New Roman', Times, serif; font-size: xx-large;">3+6</div>
+    </div>
+
+    
+    <input id="risposta" type="text" placeholder="Scrivi la risposta..." class="input input-bordered w-full max-w-xs" />
+    <button class="btn btn-primary" style="margin-left: 1rem;" onclick="verificaRisposta()">Verifica</button>
+    <button class="btn" onclick="my_modal_2.showModal()" style="margin-left: 1rem;">Suggerimento</button>
+    
+    <script>
+        function verificaRisposta() {
+            const risposta = document.getElementById("risposta").value;
+            const rispostaCorretta = 9;
+    
+            if (parseInt(risposta) === rispostaCorretta) {
+                window.location.href = "2.html";
+            } else {
+                my_modal_1.showModal()
+            }
+        }
+    
+        function chiudiModale() {
+            document.getElementById("modaleErrore").style.display = "none";
+        }
+    </script>
+
+    <dialog id="my_modal_1" class="modal">
+        <div class="modal-box">
+            <h3 class="text-lg font-bold">Sbagliato!</h3>
+            <p class="py-4" style="margin-left: 0;">Quello che hai inserito non è corretto, riprova!</p>
+            <div class="modal-action">
+            <form method="dialog">
+                <button class="btn">Chiudi</button>
+            </form>
+            </div>
+        </div>
+    </dialog>
+    <dialog id="my_modal_2" class="modal">
+        <div class="modal-box">
+            <h3 class="text-lg font-bold">Suggerimento</h3>
+            <p class="py-4" style="margin-left: 0;">Ma stiamo scherzando?</p>
+            <div class="modal-action">
+            <form method="dialog">
+                <button class="btn">Chiudi</button>
+            </form>
+            </div>
+        </div>
+    </dialog>
+
+</body>
+</html>
